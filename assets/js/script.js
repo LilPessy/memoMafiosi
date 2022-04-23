@@ -31,7 +31,12 @@ for(let i=0; i<names.length; i++){
 
 console.log(cardContent);
 
+let faces = document.querySelectorAll('.faccia');
+
 for(let i=0; i<cardContent.length; i++){
     cards[i].dataset.name = cardContent[i];
+    if(cardContent[i] === "nto"){
+        faces[i].style.backgroundImage = "url('assets/img/nto.jpg')";
+    }
 }
 
