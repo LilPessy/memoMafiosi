@@ -5,6 +5,15 @@
     padding: 0;
     font-family: 'Titillium Web', sans-serif;
     color: white;
+    box-sizing: border-box;
+}
+
+.hidden{
+    display: none;
+}
+
+.poinModal{
+    transition: ease-in-out .5s;
 }
 
 body{
@@ -60,16 +69,22 @@ header{
     transform-style: preserve-3d;
 }
 
+
 .dorso{
     z-index: 10;
     background-color: blue;
     backface-visibility: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.dorso:hover{
+    transform: scale(1.1);
 }
 
 .faccia{
     z-index: 1;
     background-color: yellow;
-    background-size: contain;
+    background-size: cover;
 }
 
 .card, .dorso, .faccia{
@@ -84,6 +99,10 @@ header{
     left: 0;
 }
 
-.card.selected{
+.card.selected, .paired{
     transform: rotateY(180deg);
+}
+
+.paired{
+    border: 2px solid red;
 }
