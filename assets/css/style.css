@@ -4,12 +4,11 @@
     margin: 0;
     padding: 0;
     font-family: 'Titillium Web', sans-serif;
-    color: white;
     box-sizing: border-box;
 }
 
 .hidden{
-    display: none;
+    display: none!important;
 }
 
 .poinModal{
@@ -30,7 +29,10 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1e0e5c;
+    background-color: #2c182e;
+    background-image: linear-gradient(315deg, #2c182e 0%, #0d324d 74%);
+    border-radius: 0 0 30px 30px;
+    color: white;
 }
 
 .stats{
@@ -45,7 +47,7 @@ header{
     font-size: 40px;
 }
 
-.chronometer, .score{
+.chronometer, .scoreContainer{
     text-align: center;
     font-size: 20px;
     font-weight: 400;
@@ -59,6 +61,7 @@ header{
     grid-template-rows: repeat(2, 200px);
     gap: 25px 25px;
     padding: 30px;
+    position: relative;
 }
 
 .card{
@@ -67,12 +70,14 @@ header{
     position: relative;
     transition: all 0.5s ease-in-out;
     transform-style: preserve-3d;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 
 .dorso{
     z-index: 10;
-    background-color: blue;
+    background-color: #36096d;
+    background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
     backface-visibility: hidden;
     transition: all 0.2s ease-in-out;
 }
@@ -84,7 +89,7 @@ header{
 .faccia{
     z-index: 1;
     background-color: yellow;
-    background-size: cover;
+    background-size: contain;
 }
 
 .card, .dorso, .faccia{
@@ -104,5 +109,92 @@ header{
 }
 
 .paired{
-    border: 2px solid red;
+    border: 3px solid rgb(30, 2, 100);
 }
+
+.pointsContainer{
+    position: relative;
+}
+
+.pointModal{
+    position: absolute;
+    top: 0;
+    left: 110%;
+}
+
+.fadeIn{
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+    
+.fadeOut{
+    animation: fadeOut 0.5s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.modal{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 65vw;
+    height: 50vh;
+    background-color: white;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+}
+
+.modalContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.modalContenth2{
+    color: black;
+}
+
+@media (max-width: 768px){
+
+    .title{
+        font-size: 20px;
+    }
+
+    .stats .chronometer h3, .stats .scoreContainer h3, .stats .chronometer span, .stats .scoreContainer span{
+        font-size: 15px!important;
+    }
+
+    .container{
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        grid-template-columns: repeat(2, 85px);
+        grid-template-rows: repeat(5, 85px);
+        gap: 20px 50px;
+        padding: 30px;
+        position: relative;
+    }
+
+    .card, .dorso, .faccia{
+        border-radius: 20px;
+    }
+}
+    
