@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalabe=no">
     <title>Memo Mafiosi</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +20,12 @@
                     <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
                 </div>
             </div>
-            <div class="score">
+            <div class="scoreContainer">
                 <h3>Score</h3>
-                <span class="points">0</span>
-                <div class="pointModal hidden"></div>
+                <div class="pointsContainer">
+                    <span class="points">0</span>
+                    <div class="pointModal hidden"></div>
+                </div>
             </div>
         </div>
     </header>
@@ -78,9 +80,16 @@
             <div class="faccia"></div>
         </div>
 
+        <div class="modal hidden">
+            <div class="modalContent">
+                <h2>You won!</h2>
+                <p>You have completed the game in <span class="time"></span>.</p>
+                <p>Your score is <span class="score"></span></p>
+            </div>
+        </div>
     </section>
     
-    <div class="modal"></div>
+    
     <script src="assets/js/script.js"></script>
 </body>
 </html>
