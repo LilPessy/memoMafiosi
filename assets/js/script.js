@@ -9,24 +9,27 @@ let winSound = new Audio('assets/sound/win.mp3');
 let end = false;
 let pairedCards = document.querySelectorAll('.paired');
 
-
+//&&(!cards[i].classList.contains('selected'))
 for(let i = 0; i < cards.length; i++){
-    if((!cards[i].classList.contains('paired'))){
-        
+    
         cards[i].addEventListener('click', function(e){
+            let selectedCards = document.querySelectorAll('.card.selected');
+            console.log(selectedCards.length);
+            if(!cards[i].classList.contains('selected') && (!cards[i].classList.contains('paired'))){
             errors++;
             flipSound.play();
             console.log(errors);
             let card = e.currentTarget;
             card.classList.toggle('selected');
-            let selectedCards = document.querySelectorAll('.card.selected');
-
-            if(selectedCards.length===2){
+            selectedCards = document.querySelectorAll('.card.selected');
+            
+            if(selectedCards.length>=2){
                 if(selectedCards[0].dataset.name === selectedCards[1].dataset.name){
                     selectedCards[0].classList.add('paired');
                     selectedCards[1].classList.add('paired');
                     selectedCards[0].classList.remove('selected');
                     selectedCards[1].classList.remove('selected');
+                    selectedCards.splice(0,2)
                     pointSound.play();
                     givePoint();
                     pairedCards = document.querySelectorAll('.paired');
@@ -46,8 +49,9 @@ for(let i = 0; i < cards.length; i++){
                 }
                 
             }
+        }
         });
-    }
+    
 }
 
 let names = ["lil", "lil", "cix", "cix", "genb", "genb", "gabbo", "gabbo", "nto", "nto"];
