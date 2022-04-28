@@ -51,7 +51,7 @@ let names = [
     {
         id: 4,
         name: "gabbo",
-        path: "assets/img/gabbo.jpg"
+        path: "assets/img/gabbo.JPG"
     },
 
     {
